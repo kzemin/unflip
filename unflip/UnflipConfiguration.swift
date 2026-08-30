@@ -26,12 +26,25 @@ enum UnflipConfiguration {
         static let mirroredTile = "Cómo te ves vos"
         static let unmirroredTile = "Cómo te ven los demás"
         static let publishMirrored = "Mandar a la call la vista espejo"
+        /// Modelled but deliberately not offered in the MVP UI.
+        static let publishUnmirrored = "Mandar a la call la vista sin espejo"
         static let cameraUsage = "unflip usa la cámara solo en esta Mac para mostrarte las dos vistas y, si lo activás, mandar el video a Zoom o Meet."
         static let systemExtensionUsage = "unflip instala una cámara virtual para que otras apps puedan usar el video ya dado vuelta."
         static let footer = "Elegí “unflip” como cámara en Zoom o Meet."
 
         static let sourceLabel = "Cámara"
         static let virtualCameraOff = "Cámara virtual: apagada"
+        static let virtualCameraOn = "Cámara virtual: unflip"
+        static let virtualCameraInstalling = "Cámara virtual: instalando…"
+        static let virtualCameraUpdating = "Cámara virtual: actualizando…"
+        static let virtualCameraNeedsApproval = "Aprobá unflip en Ajustes del Sistema, en General → Elementos de inicio y extensiones."
+        static let virtualCameraNeedsRestart = "Reiniciá la Mac para terminar de instalar la cámara virtual."
+        static let virtualCameraInstalledNotVisible = "Instalada. Todavía no aparece como cámara."
+        static let virtualCameraNeedsApplicationsFolder = "unflip tiene que estar en la carpeta Aplicaciones para instalar la cámara virtual."
+
+        static func virtualCameraFailed(_ reason: String) -> String {
+            "No pudimos instalar la cámara virtual: \(reason)"
+        }
 
         static let permissionDenied = "unflip necesita permiso para usar la cámara."
         static let permissionRestricted = "El permiso de cámara está bloqueado en esta Mac."

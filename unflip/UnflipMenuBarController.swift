@@ -10,9 +10,11 @@ final class UnflipMenuBarController: NSObject, NSPopoverDelegate {
     private let statusItem: NSStatusItem
     private let popover = NSPopover()
     private let camera: CameraSessionController
+    private let activation: VirtualCameraActivation
 
-    init(camera: CameraSessionController) {
+    init(camera: CameraSessionController, activation: VirtualCameraActivation) {
         self.camera = camera
+        self.activation = activation
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         super.init()
 
@@ -31,7 +33,9 @@ final class UnflipMenuBarController: NSObject, NSPopoverDelegate {
         popover.behavior = .transient
         popover.appearance = NSAppearance(named: .darkAqua)
         popover.delegate = self
-        popover.contentViewController = NSHostingController(rootView: UnflipPopoverView(camera: camera))
+        popover.contentViewController = NSHostingController(
+            rootView: UnflipPopoverView(camera: camera, activation: activation)
+        )
     }
 
     @objc private func togglePopover() {
@@ -53,6 +57,10 @@ final class UnflipMenuBarController: NSObject, NSPopoverDelegate {
         popover.contentViewController?.view.window?.makeKey()
     }
 
+    @objc private func installVirtualCamera() {
+        activation.activate()
+    }
+
     private func showContextMenu() {
         let menu = NSMenu()
 
@@ -60,9 +68,13 @@ final class UnflipMenuBarController: NSObject, NSPopoverDelegate {
         open.target = self
         menu.addItem(open)
 
-        // Enabled by Plan 003, once there is an extension to activate.
-        let install = NSMenuItem(title: UnflipConfiguration.Copy.menuInstallExtension, action: nil, keyEquivalent: "")
-        install.isEnabled = false
+        let install = NSMenuItem(
+            title: UnflipConfiguration.Copy.menuInstallExtension,
+            action: #selector(installVirtualCamera),
+            keyEquivalent: ""
+        )
+        install.target = self
+        install.isEnabled = !activation.state.isBusy
         menu.addItem(install)
 
         menu.addItem(.separator())
@@ -85,6 +97,8 @@ final class UnflipMenuBarController: NSObject, NSPopoverDelegate {
 
     func popoverWillShow(_ notification: Notification) {
         camera.setPreviewDemand(true)
+        // Event-driven, not polled: only re-check the device when someone looks.
+        activation.refresh()
     }
 
     func popoverDidClose(_ notification: Notification) {

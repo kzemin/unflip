@@ -22,6 +22,11 @@
 		AA0000000000000000001110 /* AVFoundationCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000074 /* AVFoundationCapture.swift */; };
 		AA0000000000000000001302 /* CameraDeviceDescriptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000F2 /* CameraDeviceDescriptorTests.swift */; };
 		AA0000000000000000001303 /* CameraSessionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000F3 /* CameraSessionControllerTests.swift */; };
+		AA0000000000000000001111 /* VirtualCameraOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000A5 /* VirtualCameraOrientation.swift */; };
+		AA0000000000000000001112 /* FrameMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000A6 /* FrameMirror.swift */; };
+		AA0000000000000000001304 /* FrameMirrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000F4 /* FrameMirrorTests.swift */; };
+		AA0000000000000000001113 /* VirtualCameraActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000A7 /* VirtualCameraActivation.swift */; };
+		AA0000000000000000001305 /* VirtualCameraActivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000F5 /* VirtualCameraActivationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +82,11 @@
 		AA0000000000000000000074 /* AVFoundationCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundationCapture.swift; sourceTree = "<group>"; };
 		AA00000000000000000000F2 /* CameraDeviceDescriptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraDeviceDescriptorTests.swift; sourceTree = "<group>"; };
 		AA00000000000000000000F3 /* CameraSessionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSessionControllerTests.swift; sourceTree = "<group>"; };
+		AA00000000000000000000A5 /* VirtualCameraOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualCameraOrientation.swift; sourceTree = "<group>"; };
+		AA00000000000000000000A6 /* FrameMirror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameMirror.swift; sourceTree = "<group>"; };
+		AA00000000000000000000F4 /* FrameMirrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameMirrorTests.swift; sourceTree = "<group>"; };
+		AA00000000000000000000A7 /* VirtualCameraActivation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualCameraActivation.swift; sourceTree = "<group>"; };
+		AA00000000000000000000F5 /* VirtualCameraActivationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualCameraActivationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				AA00000000000000000000B6 /* Camera */,
+				AA00000000000000000000B7 /* VirtualCamera */,
 				AA00000000000000000000D7 /* main.swift */,
 				AA00000000000000000000D1 /* AppDelegate.swift */,
 				AA00000000000000000000D2 /* UnflipMenuBarController.swift */,
@@ -154,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				AA00000000000000000000F1 /* AppConfigurationTests.swift */,
+				AA00000000000000000000F4 /* FrameMirrorTests.swift */,
+				AA00000000000000000000F5 /* VirtualCameraActivationTests.swift */,
 				AA00000000000000000000F2 /* CameraDeviceDescriptorTests.swift */,
 				AA00000000000000000000F3 /* CameraSessionControllerTests.swift */,
 
@@ -170,6 +183,16 @@
 				AA0000000000000000000074 /* AVFoundationCapture.swift */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000000B7 /* VirtualCamera */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000000A5 /* VirtualCameraOrientation.swift */,
+				AA00000000000000000000A6 /* FrameMirror.swift */,
+				AA00000000000000000000A7 /* VirtualCameraActivation.swift */,
+			);
+			path = VirtualCamera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +300,9 @@
 				AA0000000000000000001108 /* CameraSessionController.swift in Sources */,
 				AA0000000000000000001109 /* CameraPreviewView.swift in Sources */,
 				AA0000000000000000001110 /* AVFoundationCapture.swift in Sources */,
+				AA0000000000000000001111 /* VirtualCameraOrientation.swift in Sources */,
+				AA0000000000000000001112 /* FrameMirror.swift in Sources */,
+				AA0000000000000000001113 /* VirtualCameraActivation.swift in Sources */,
 				AA0000000000000000001106 /* main.swift in Sources */,
 				AA0000000000000000001101 /* AppDelegate.swift in Sources */,
 				AA0000000000000000001102 /* UnflipMenuBarController.swift in Sources */,
@@ -299,6 +325,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA0000000000000000001301 /* AppConfigurationTests.swift in Sources */,
+				AA0000000000000000001304 /* FrameMirrorTests.swift in Sources */,
+				AA0000000000000000001305 /* VirtualCameraActivationTests.swift in Sources */,
 				AA0000000000000000001302 /* CameraDeviceDescriptorTests.swift in Sources */,
 				AA0000000000000000001303 /* CameraSessionControllerTests.swift in Sources */,
 			);

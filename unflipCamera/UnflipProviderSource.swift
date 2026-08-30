@@ -12,9 +12,12 @@ import os.log
 enum UnflipIdentity {
     static let deviceID = UUID(uuidString: "3F1A6C2E-0B7D-4E9A-9C41-5F6A7B8C9D01")!
     static let sourceStreamID = UUID(uuidString: "3F1A6C2E-0B7D-4E9A-9C41-5F6A7B8C9D02")!
+    /// Reserved now so the sink stream Plan 003 Step 3 adds keeps one identity
+    /// from the first release. Never regenerate these.
+    static let sinkStreamID = UUID(uuidString: "3F1A6C2E-0B7D-4E9A-9C41-5F6A7B8C9D03")!
     static let deviceName = "unflip"
     static let manufacturer = "unflip"
-    static let model = "unflip virtual camera"
+    static let model = "unflip"
 }
 
 private let frameRate: Int32 = 30
@@ -37,6 +40,7 @@ final class UnflipDeviceSource: NSObject, CMIOExtensionDeviceSource {
     private var videoDescription: CMFormatDescription!
     private var bufferPool: CVPixelBufferPool!
     private let bufferAuxAttributes: NSDictionary = [kCVPixelBufferPoolAllocationThresholdKey: 5]
+    private var cachedTestPattern: CVPixelBuffer?
 
     init(localizedName: String) {
         super.init()
@@ -112,7 +116,7 @@ final class UnflipDeviceSource: NSObject, CMIOExtensionDeviceSource {
 
         let timer = DispatchSource.makeTimerSource(flags: .strict, queue: timerQueue)
         timer.schedule(deadline: .now(), repeating: 1.0 / Double(frameRate), leeway: .milliseconds(1))
-        timer.setEventHandler { [weak self] in self?.sendPlaceholderFrame() }
+        timer.setEventHandler { [weak self] in self?.sendTestFrame() }
         timer.resume()
         self.timer = timer
     }
@@ -127,9 +131,13 @@ final class UnflipDeviceSource: NSObject, CMIOExtensionDeviceSource {
         timer = nil
     }
 
-    /// ponytail: opaque grey frames until Plan 003 bridges real camera frames.
-    /// Enough to prove the device publishes video to a call app.
-    private func sendPlaceholderFrame() {
+    /// Plan 003 Step 2: a deterministic, deliberately asymmetric test pattern.
+    /// Asymmetric so that "is the published frame mirrored?" is answerable by
+    /// looking at it — the red bar sits on the left of the unmirrored frame.
+    /// Plan 003 Step 3 replaces this with host frames and a black fallback.
+    private func sendTestFrame() {
+        guard let pattern = testPattern() else { return }
+
         var pixelBuffer: CVPixelBuffer?
         let status = CVPixelBufferPoolCreatePixelBufferWithAuxAttributes(
             kCFAllocatorDefault, bufferPool, bufferAuxAttributes, &pixelBuffer
@@ -139,12 +147,21 @@ final class UnflipDeviceSource: NSObject, CMIOExtensionDeviceSource {
             return
         }
 
+        // ponytail: one memcpy of a pre-rendered pattern per frame rather than
+        // redrawing it. Step 3 replaces the copy source with the host frame.
+        CVPixelBufferLockBaseAddress(pattern, .readOnly)
         CVPixelBufferLockBaseAddress(pixelBuffer, [])
-        if let base = CVPixelBufferGetBaseAddress(pixelBuffer) {
-            memset(base, 0x20, CVPixelBufferGetBytesPerRow(pixelBuffer) * CVPixelBufferGetHeight(pixelBuffer))
+        if let source = CVPixelBufferGetBaseAddress(pattern),
+           let destination = CVPixelBufferGetBaseAddress(pixelBuffer) {
+            memcpy(destination, source, CVPixelBufferGetBytesPerRow(pattern) * CVPixelBufferGetHeight(pattern))
         }
         CVPixelBufferUnlockBaseAddress(pixelBuffer, [])
+        CVPixelBufferUnlockBaseAddress(pattern, .readOnly)
 
+        send(pixelBuffer)
+    }
+
+    private func send(_ pixelBuffer: CVPixelBuffer) {
         var timing = CMSampleTimingInfo()
         timing.presentationTimeStamp = CMClockGetTime(CMClockGetHostTimeClock())
 
@@ -166,6 +183,42 @@ final class UnflipDeviceSource: NSObject, CMIOExtensionDeviceSource {
             discontinuity: [],
             hostTimeInNanoseconds: UInt64(timing.presentationTimeStamp.seconds * Double(NSEC_PER_SEC))
         )
+    }
+
+    /// Rendered once and reused.
+    private func testPattern() -> CVPixelBuffer? {
+        if let cachedTestPattern { return cachedTestPattern }
+
+        var buffer: CVPixelBuffer?
+        let attributes: NSDictionary = [kCVPixelBufferIOSurfacePropertiesKey: [:] as NSDictionary]
+        guard CVPixelBufferCreate(
+            kCFAllocatorDefault, Int(frameWidth), Int(frameHeight),
+            kCVPixelFormatType_32BGRA, attributes, &buffer
+        ) == kCVReturnSuccess, let buffer else { return nil }
+
+        CVPixelBufferLockBaseAddress(buffer, [])
+        defer { CVPixelBufferUnlockBaseAddress(buffer, []) }
+        guard let base = CVPixelBufferGetBaseAddress(buffer) else { return nil }
+
+        let rowBytes = CVPixelBufferGetBytesPerRow(buffer)
+        let width = Int(frameWidth)
+        let height = Int(frameHeight)
+        let barWidth = width / 8
+
+        for y in 0..<height {
+            let row = base.advanced(by: y * rowBytes).assumingMemoryBound(to: UInt32.self)
+            for x in 0..<width {
+                if x < barWidth {
+                    row[x] = 0xFFE0_3030            // red bar, left edge only
+                } else {
+                    let blue = UInt32(x * 255 / width)
+                    row[x] = 0xFF20_2020 | blue     // dark grey, bluer to the right
+                }
+            }
+        }
+
+        cachedTestPattern = buffer
+        return buffer
     }
 }
 

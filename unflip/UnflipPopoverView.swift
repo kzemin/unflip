@@ -4,6 +4,7 @@ import SwiftUI
 struct UnflipPopoverView: View {
 
     @ObservedObject var camera: CameraSessionController
+    @ObservedObject var activation: VirtualCameraActivation
 
     private static let background = Color(red: 0x0B / 255, green: 0x0B / 255, blue: 0x0C / 255)
 
@@ -94,16 +95,17 @@ struct UnflipPopoverView: View {
                 .controlSize(.small)
                 .disabled(true)
 
-            Text(UnflipConfiguration.Copy.virtualCameraOff)
+            Text(activation.state.statusText)
                 .font(.caption2)
                 .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 
     private var overflowMenu: some View {
         Menu {
-            Button(UnflipConfiguration.Copy.menuInstallExtension) {}
-                .disabled(true)
+            Button(UnflipConfiguration.Copy.menuInstallExtension) { activation.activate() }
+                .disabled(activation.state.isBusy)
             Divider()
             Button(UnflipConfiguration.Copy.quit) { NSApplication.shared.terminate(nil) }
         } label: {

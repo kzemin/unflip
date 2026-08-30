@@ -3,6 +3,7 @@ import AppKit
 final class UnflipAppDelegate: NSObject, NSApplicationDelegate {
 
     private var camera: CameraSessionController?
+    private var activation: VirtualCameraActivation?
     private var menuBar: UnflipMenuBarController?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -14,7 +15,13 @@ final class UnflipAppDelegate: NSObject, NSApplicationDelegate {
             engine: AVFoundationCaptureEngine()
         )
         self.camera = camera
-        menuBar = UnflipMenuBarController(camera: camera)
+
+        // Nothing is activated here either: installing the Camera Extension is
+        // always an explicit user action from the menu.
+        let activation = VirtualCameraActivation()
+        self.activation = activation
+
+        menuBar = UnflipMenuBarController(camera: camera, activation: activation)
     }
 
     func applicationWillTerminate(_ notification: Notification) {
