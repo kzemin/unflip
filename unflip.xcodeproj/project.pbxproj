@@ -1,0 +1,517 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA0000000000000000001101 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000D1 /* AppDelegate.swift */; };
+		AA0000000000000000001102 /* UnflipMenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000D2 /* UnflipMenuBarController.swift */; };
+		AA0000000000000000001103 /* UnflipPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000D3 /* UnflipPopoverView.swift */; };
+		AA0000000000000000001104 /* UnflipConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000D4 /* UnflipConfiguration.swift */; };
+		AA0000000000000000001106 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000D7 /* main.swift */; };
+		AA0000000000000000001105 /* unflipCamera.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000C2 /* unflipCamera.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AA0000000000000000001201 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000E1 /* main.swift */; };
+		AA0000000000000000001202 /* UnflipProviderSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000E2 /* UnflipProviderSource.swift */; };
+		AA0000000000000000001301 /* AppConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000F1 /* AppConfigurationTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA0000000000000000005002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA00000000000000000000A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0000000000000000003002;
+			remoteInfo = unflipCamera;
+		};
+		AA0000000000000000005004 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA00000000000000000000A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0000000000000000003001;
+			remoteInfo = unflip;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AA0000000000000000002104 /* Embed System Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(SYSTEM_EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				AA0000000000000000001105 /* unflipCamera.systemextension in Embed System Extensions */,
+			);
+			name = "Embed System Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AA00000000000000000000C1 /* unflip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unflip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA00000000000000000000C2 /* unflipCamera.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = unflipCamera.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA00000000000000000000C3 /* unflipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unflipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA00000000000000000000D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AA00000000000000000000D2 /* UnflipMenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnflipMenuBarController.swift; sourceTree = "<group>"; };
+		AA00000000000000000000D3 /* UnflipPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnflipPopoverView.swift; sourceTree = "<group>"; };
+		AA00000000000000000000D4 /* UnflipConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnflipConfiguration.swift; sourceTree = "<group>"; };
+		AA00000000000000000000D7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		AA00000000000000000000D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA00000000000000000000D6 /* unflip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = unflip.entitlements; sourceTree = "<group>"; };
+		AA00000000000000000000E1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		AA00000000000000000000E2 /* UnflipProviderSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnflipProviderSource.swift; sourceTree = "<group>"; };
+		AA00000000000000000000E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA00000000000000000000E4 /* unflipCamera.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = unflipCamera.entitlements; sourceTree = "<group>"; };
+		AA00000000000000000000F1 /* AppConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurationTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA0000000000000000002102 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000000000000000002202 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000000000000000002302 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA00000000000000000000B1 = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000000B3 /* unflip */,
+				AA00000000000000000000B4 /* unflipCamera */,
+				AA00000000000000000000B5 /* unflipTests */,
+				AA00000000000000000000B2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA00000000000000000000B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000000C1 /* unflip.app */,
+				AA00000000000000000000C2 /* unflipCamera.systemextension */,
+				AA00000000000000000000C3 /* unflipTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000000B3 /* unflip */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000000D7 /* main.swift */,
+				AA00000000000000000000D1 /* AppDelegate.swift */,
+				AA00000000000000000000D2 /* UnflipMenuBarController.swift */,
+				AA00000000000000000000D3 /* UnflipPopoverView.swift */,
+				AA00000000000000000000D4 /* UnflipConfiguration.swift */,
+				AA00000000000000000000D5 /* Info.plist */,
+				AA00000000000000000000D6 /* unflip.entitlements */,
+			);
+			path = unflip;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000000B4 /* unflipCamera */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000000E1 /* main.swift */,
+				AA00000000000000000000E2 /* UnflipProviderSource.swift */,
+				AA00000000000000000000E3 /* Info.plist */,
+				AA00000000000000000000E4 /* unflipCamera.entitlements */,
+			);
+			path = unflipCamera;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000000B5 /* unflipTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000000F1 /* AppConfigurationTests.swift */,
+			);
+			path = unflipTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA0000000000000000003001 /* unflip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000004001 /* Build configuration list for PBXNativeTarget "unflip" */;
+			buildPhases = (
+				AA0000000000000000002101 /* Sources */,
+				AA0000000000000000002102 /* Frameworks */,
+				AA0000000000000000002104 /* Embed System Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA0000000000000000005001 /* PBXTargetDependency */,
+			);
+			name = unflip;
+			productName = unflip;
+			productReference = AA00000000000000000000C1 /* unflip.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA0000000000000000003002 /* unflipCamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000004002 /* Build configuration list for PBXNativeTarget "unflipCamera" */;
+			buildPhases = (
+				AA0000000000000000002201 /* Sources */,
+				AA0000000000000000002202 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = unflipCamera;
+			productName = unflipCamera;
+			productReference = AA00000000000000000000C2 /* unflipCamera.systemextension */;
+			productType = "com.apple.product-type.system-extension";
+		};
+		AA0000000000000000003003 /* unflipTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000004003 /* Build configuration list for PBXNativeTarget "unflipTests" */;
+			buildPhases = (
+				AA0000000000000000002301 /* Sources */,
+				AA0000000000000000002302 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA0000000000000000005003 /* PBXTargetDependency */,
+			);
+			name = unflipTests;
+			productName = unflipTests;
+			productReference = AA00000000000000000000C3 /* unflipTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA00000000000000000000A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2650;
+				LastUpgradeCheck = 2650;
+				TargetAttributes = {
+					AA0000000000000000003001 = {
+						CreatedOnToolsVersion = 26.5;
+					};
+					AA0000000000000000003002 = {
+						CreatedOnToolsVersion = 26.5;
+					};
+					AA0000000000000000003003 = {
+						CreatedOnToolsVersion = 26.5;
+						TestTargetID = AA0000000000000000003001;
+					};
+				};
+			};
+			buildConfigurationList = AA00000000000000000000A2 /* Build configuration list for PBXProject "unflip" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA00000000000000000000B1;
+			productRefGroup = AA00000000000000000000B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA0000000000000000003001 /* unflip */,
+				AA0000000000000000003002 /* unflipCamera */,
+				AA0000000000000000003003 /* unflipTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA0000000000000000002101 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000001106 /* main.swift in Sources */,
+				AA0000000000000000001101 /* AppDelegate.swift in Sources */,
+				AA0000000000000000001102 /* UnflipMenuBarController.swift in Sources */,
+				AA0000000000000000001103 /* UnflipPopoverView.swift in Sources */,
+				AA0000000000000000001104 /* UnflipConfiguration.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000000000000000002201 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000001202 /* UnflipProviderSource.swift in Sources */,
+				AA0000000000000000001201 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000000000000000002301 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000001301 /* AppConfigurationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA0000000000000000005001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0000000000000000003002 /* unflipCamera */;
+			targetProxy = AA0000000000000000005002 /* PBXContainerItemProxy */;
+		};
+		AA0000000000000000005003 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0000000000000000003001 /* unflip */;
+			targetProxy = AA0000000000000000005004 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AA00000000000000000000A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GENERATE_INFOPLIST_FILE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AA00000000000000000000A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		AA0000000000000000004101 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CODE_SIGN_ENTITLEMENTS = unflip/unflip.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = unflip/Info.plist;
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kzemin.unflip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		AA0000000000000000004102 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CODE_SIGN_ENTITLEMENTS = unflip/unflip.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = unflip/Info.plist;
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kzemin.unflip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		AA0000000000000000004201 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = unflipCamera/unflipCamera.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = unflipCamera/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kzemin.unflip.camera;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		AA0000000000000000004202 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = unflipCamera/unflipCamera.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = unflipCamera/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kzemin.unflip.camera;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		AA0000000000000000004301 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kzemin.unflip.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/unflip.app/Contents/MacOS/unflip";
+			};
+			name = Debug;
+		};
+		AA0000000000000000004302 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kzemin.unflip.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/unflip.app/Contents/MacOS/unflip";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA00000000000000000000A2 /* Build configuration list for PBXProject "unflip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00000000000000000000A3 /* Debug */,
+				AA00000000000000000000A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000004001 /* Build configuration list for PBXNativeTarget "unflip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000004101 /* Debug */,
+				AA0000000000000000004102 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000004002 /* Build configuration list for PBXNativeTarget "unflipCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000004201 /* Debug */,
+				AA0000000000000000004202 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000004003 /* Build configuration list for PBXNativeTarget "unflipTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000004301 /* Debug */,
+				AA0000000000000000004302 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA00000000000000000000A1 /* Project object */;
+}

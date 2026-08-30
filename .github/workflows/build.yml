@@ -1,0 +1,49 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    # macos-15 is the tightest label GitHub currently supports that ships an
+    # Xcode able to compile a Camera Extension against the macOS 14 SDK.
+    runs-on: macos-15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show toolchain
+        run: |
+          xcodebuild -version
+          swift --version
+
+      - name: Build (unsigned)
+        run: |
+          xcodebuild -project unflip.xcodeproj -scheme unflip \
+            -configuration Debug -destination 'platform=macOS' \
+            CODE_SIGNING_ALLOWED=NO build
+
+      - name: Test (unsigned)
+        run: |
+          xcodebuild test -project unflip.xcodeproj -scheme unflip \
+            -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO
+
+      - name: Privacy boundary — no networking APIs
+        run: |
+          if grep -rnE 'URLSession|NWConnection|Network\.framework|WebKit' unflip unflipCamera; then
+            echo "::error::unflip must not use any networking API."
+            exit 1
+          fi
+
+      - name: Privacy boundary — no audio capture
+        run: |
+          if grep -rnE 'NSMicrophoneUsageDescription|AVMediaType\.audio|AVCaptureAudio' unflip unflipCamera; then
+            echo "::error::unflip must not capture audio."
+            exit 1
+          fi

@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Xcode build products and user state. Source, project files, entitlements and
+# shared schemes are deliberately NOT ignored: this repository is meant to be
+# inspected before anyone installs a camera extension built from it.
+build/
+DerivedData/
+*.xcuserstate
+*.xcuserdatad/
+xcuserdata/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Local signing / notarization material must never be committed.
+*.p12
+*.cer
+*.certSigningRequest
+*.mobileprovision
+*.provisionprofile
