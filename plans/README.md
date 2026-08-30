@@ -28,7 +28,7 @@ are authorized, and limits questions to genuine external blockers.
 |------|-------|----------|--------|------------|--------|
 | 001 | Establish the project and public trust baseline | P1 | M | — | DONE |
 | 002 | Ship the dual-preview menu-bar MVP | P1 | M | 001 | DONE |
-| 003 | Add the `unflip` virtual camera vertical slice | P1 | L | 002 | TODO |
+| 003 | Add the `unflip` virtual camera vertical slice | P1 | L | 002 | IN PROGRESS |
 | 004 | Harden, document, sign, and release the MVP | P2 | M | 003 | TODO |
 
 Status values: `TODO`, `IN PROGRESS`, `DONE`, `BLOCKED: <reason>`, or
