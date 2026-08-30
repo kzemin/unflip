@@ -16,6 +16,12 @@
 		AA0000000000000000001201 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000E1 /* main.swift */; };
 		AA0000000000000000001202 /* UnflipProviderSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000E2 /* UnflipProviderSource.swift */; };
 		AA0000000000000000001301 /* AppConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000F1 /* AppConfigurationTests.swift */; };
+		AA0000000000000000001107 /* CameraDeviceDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000071 /* CameraDeviceDescriptor.swift */; };
+		AA0000000000000000001108 /* CameraSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000072 /* CameraSessionController.swift */; };
+		AA0000000000000000001109 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000073 /* CameraPreviewView.swift */; };
+		AA0000000000000000001110 /* AVFoundationCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000074 /* AVFoundationCapture.swift */; };
+		AA0000000000000000001302 /* CameraDeviceDescriptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000F2 /* CameraDeviceDescriptorTests.swift */; };
+		AA0000000000000000001303 /* CameraSessionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000F3 /* CameraSessionControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +71,12 @@
 		AA00000000000000000000E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA00000000000000000000E4 /* unflipCamera.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = unflipCamera.entitlements; sourceTree = "<group>"; };
 		AA00000000000000000000F1 /* AppConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurationTests.swift; sourceTree = "<group>"; };
+		AA0000000000000000000071 /* CameraDeviceDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraDeviceDescriptor.swift; sourceTree = "<group>"; };
+		AA0000000000000000000072 /* CameraSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSessionController.swift; sourceTree = "<group>"; };
+		AA0000000000000000000073 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000074 /* AVFoundationCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVFoundationCapture.swift; sourceTree = "<group>"; };
+		AA00000000000000000000F2 /* CameraDeviceDescriptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraDeviceDescriptorTests.swift; sourceTree = "<group>"; };
+		AA00000000000000000000F3 /* CameraSessionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSessionControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +127,7 @@
 		AA00000000000000000000B3 /* unflip */ = {
 			isa = PBXGroup;
 			children = (
+				AA00000000000000000000B6 /* Camera */,
 				AA00000000000000000000D7 /* main.swift */,
 				AA00000000000000000000D1 /* AppDelegate.swift */,
 				AA00000000000000000000D2 /* UnflipMenuBarController.swift */,
@@ -141,8 +154,22 @@
 			isa = PBXGroup;
 			children = (
 				AA00000000000000000000F1 /* AppConfigurationTests.swift */,
+				AA00000000000000000000F2 /* CameraDeviceDescriptorTests.swift */,
+				AA00000000000000000000F3 /* CameraSessionControllerTests.swift */,
+
 			);
 			path = unflipTests;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000000B6 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000071 /* CameraDeviceDescriptor.swift */,
+				AA0000000000000000000072 /* CameraSessionController.swift */,
+				AA0000000000000000000073 /* CameraPreviewView.swift */,
+				AA0000000000000000000074 /* AVFoundationCapture.swift */,
+			);
+			path = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +273,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA0000000000000000001107 /* CameraDeviceDescriptor.swift in Sources */,
+				AA0000000000000000001108 /* CameraSessionController.swift in Sources */,
+				AA0000000000000000001109 /* CameraPreviewView.swift in Sources */,
+				AA0000000000000000001110 /* AVFoundationCapture.swift in Sources */,
 				AA0000000000000000001106 /* main.swift in Sources */,
 				AA0000000000000000001101 /* AppDelegate.swift in Sources */,
 				AA0000000000000000001102 /* UnflipMenuBarController.swift in Sources */,
@@ -268,6 +299,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA0000000000000000001301 /* AppConfigurationTests.swift in Sources */,
+				AA0000000000000000001302 /* CameraDeviceDescriptorTests.swift in Sources */,
+				AA0000000000000000001303 /* CameraSessionControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

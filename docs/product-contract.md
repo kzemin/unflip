@@ -28,6 +28,12 @@ orientation to other apps through a virtual camera named `unflip`.
 | Capture ownership | the host app owns the single physical capture session |
 | License | intentionally absent until the owner chooses one |
 
+## Implementation status
+
+- Dual preview (two synchronized 16:9 tiles from one capture session, left
+  mirrored and right unmirrored): **implemented**, Plan 002.
+- `unflip` virtual camera: **not implemented yet**, Plan 003.
+
 ## Orientation contract
 
 This is the part users care about, so it is stated exactly:
